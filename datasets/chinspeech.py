@@ -70,7 +70,7 @@ def _process_utterance(out_dir, index, wav_path, text):
   mel_filename = 'chinspeech-mel-%06d.npy' % index
   np.save(os.path.join(out_dir, spectrogram_filename), spectrogram.T, allow_pickle=False)
   np.save(os.path.join(out_dir, mel_filename), mel_spectrogram.T, allow_pickle=False)
-  print('===> save {}'.format(spectrogram_filename))
+  # print('===> save {}'.format(spectrogram_filename))
 
   # Return a tuple describing this training example:
   return (spectrogram_filename, mel_filename, n_frames, text)
