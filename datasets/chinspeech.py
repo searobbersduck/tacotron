@@ -28,11 +28,11 @@ def build_from_path(in_dir, out_dir, num_workers=1, tqdm=lambda x: x):
     for line in f:
       parts = line.strip().split()
       id = parts[0]
-      wav_path = os.path.join(in_dir, 'wavs', 'train', id[6:11], '%s.wav' % parts[0])
+      wav_path = os.path.join(in_dir, 'wav', 'train', id[6:11], '%s.wav' % parts[0])
       if not os.path.exists(wav_path):
           #print('skip {}'.format(wav_path))
           continue
-      print('handle {}'.format(wav_path))
+      # print('handle {}'.format(wav_path))
       text = ' '.join(parts[1:])
       futures.append(executor.submit(partial(_process_utterance, out_dir, index, wav_path, text)))
       index += 1
