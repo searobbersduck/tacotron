@@ -29,7 +29,7 @@ def build_from_path(in_dir, out_dir, num_workers=1, tqdm=lambda x: x):
       parts = line.strip().split()
       id = parts[0]
       wav_path = os.path.join(in_dir, 'wavs', 'train', id[6:11], '%s.wav' % parts[0])
-      if not os.path.isfile(wav_path):
+      if not os.path.exists(wav_path):
           print('skip {}'.format(wav_path))
           continue
       text = ' '.join(parts[1:])
