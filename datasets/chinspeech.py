@@ -32,6 +32,7 @@ def build_from_path(in_dir, out_dir, num_workers=1, tqdm=lambda x: x):
       if not os.path.exists(wav_path):
           #print('skip {}'.format(wav_path))
           continue
+      print('handle {}'.format(wav_path))
       text = ' '.join(parts[1:])
       futures.append(executor.submit(partial(_process_utterance, out_dir, index, wav_path, text)))
       index += 1
