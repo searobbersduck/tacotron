@@ -25,7 +25,7 @@ def build_from_path(in_dir, out_dir, num_workers=1, tqdm=lambda x: x):
   index = 1
   with open(os.path.join(in_dir, 'transcript/aishell_transcript_v0.8.txt'), encoding='utf-8') as f:
     for line in f:
-      parts = line.strip().split('')
+      parts = line.strip().split()
       id = parts[0]
       wav_path = os.path.join(in_dir, 'wavs', 'train', id[6:11], '%s.wav' % parts[0])
       if not os.path.isfile(wav_path):
