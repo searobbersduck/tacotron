@@ -23,6 +23,7 @@ def build_from_path(in_dir, out_dir, num_workers=1, tqdm=lambda x: x):
   executor = ProcessPoolExecutor(max_workers=num_workers)
   futures = []
   index = 1
+  print('flag file:\t{}'.format(os.path.join(in_dir, 'transcript/aishell_transcript_v0.8.txt')))
   with open(os.path.join(in_dir, 'transcript/aishell_transcript_v0.8.txt'), encoding='utf-8') as f:
     for line in f:
       parts = line.strip().split()
